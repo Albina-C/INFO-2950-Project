@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# I. Research Question\n",
+    "# Research Question\n",
     "#### Is there a relationship in how happy a country is and the music the people of this country listen to?"
    ]
   },
@@ -16,10 +16,9 @@
     "Attempting to understand what makes a country \"happy\" is often attributable to freedom, social support, life expectancy, health, among others. However, the music the people of said country listen to is often not one of these factors given its weak relationship and versatility across the world. Although our research question does not attempt to attribute the type of music a country listens to to its happiness index score (it would be difficult to establish given reverse causality), we are more interested in observing what trends are apparent in some of the happiest and less happiest countries with respect to the music they listen to. \n",
     "\n",
     "#### Some additional questions that we are seeking to answer...\n",
-    "- What are the songs (if any) that are popular in all countries regardless of happiness rank?\n",
+    "- Are there songs that are popular in all countries regardless of happiness rank?\n",
     "- Are there genres/styles of music that are consistent with \"happy\" countries? With \"sad\" countries? For example, can we expect happy countries to listen to more pop music than sad ones?\n",
-    "- What are the characteristics of songs that are popular in happy countries? In sad countries? (e.g. Fast or slow tempo? Live vocals or autotune?)\n",
-    "- Can we find more instances of happy songs in sad countries than sad songs in happy countries?\n",
+    "- What are the characteristics of songs that are popular in happy countries? Fast or slow tempo? Live vocals or autotune?\n",
     "\n",
     "#### The datasets we will be using:\n",
     "\n",
@@ -41,12 +40,18 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# II. Data Collection and Cleaning"
+    "<hr>\n",
+    "\n",
+    "## Data prep"
    ]
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 84,
+=======
+   "execution_count": 1,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [],
    "source": [
@@ -74,7 +79,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### A. Data cleaning for \"World Happiness Report\""
+    "### Data cleaning for \"World Happiness Report\""
    ]
   },
   {
@@ -239,7 +244,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 85,
+=======
+   "execution_count": 3,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
     {
@@ -325,7 +334,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 86,
+=======
+   "execution_count": 4,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {
     "scrolled": true
    },
@@ -350,12 +363,17 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": []
+  },
+  {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 87,
    "metadata": {},
    "outputs": [],
    "source": [
-<<<<<<< Updated upstream
     "argentina=pd.read_csv(\"argentina.csv\")\n",
     "\n",
     "australia=pd.read_csv(\"australia.csv\")\n",
@@ -413,7 +431,10 @@
     "unitedstates=pd.read_csv(\"unitedstates.csv\")\n",
     "uruguay=pd.read_csv(\"uruguay.csv\")\n"
 =======
-    "#the 54 country .csv that split from data.csv (\"Spotify's Worldwide Song Ranking\")\n",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "argentina=pd.read_csv(\"argentina.csv\", parse_dates=['Date'])\n",
     "australia=pd.read_csv(\"australia.csv\", parse_dates=['Date'])\n",
     "austria=pd.read_csv(\"austria.csv\", parse_dates=['Date'])\n",
@@ -468,29 +489,34 @@
     "unitedkingdom=pd.read_csv(\"unitedkingdom.csv\", parse_dates=['Date'])\n",
     "unitedstates=pd.read_csv(\"unitedstates.csv\", parse_dates=['Date'])\n",
     "uruguay=pd.read_csv(\"uruguay.csv\", parse_dates=['Date'])"
->>>>>>> Stashed changes
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Creating a new happiness dataframe that contains only the relevant countries\n",
+    "As noted in our dataset descriptions, the \"Worldwide Happiness Ranking\" (happy17 dataframe) contains happiness data for 155 countries, while \"Spotify's Worldwide Song Ranking\" contains only 54 countries. We needed to find the overlapping countries to <br>\n",
+    "1. Create a new happiness ranking excluding the countries not found in the song ranking dataset, subsetted in the dataframe **happy**\n",
+    "<br>\n",
+    "2. Figure out which \"Spotify's Worldwide Song Rankings) country .csv files we do not need."
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    ]
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": null,
    "metadata": {},
-<<<<<<< Updated upstream
    "outputs": [],
    "source": []
-=======
-   "source": [
-    "#### 1. Creating a new happiness dataframe that contains only the relevant countries\n",
-    "As noted in our dataset descriptions, the \"Worldwide Happiness Ranking\" (happy17) contains happiness data for 155 countries, while \"Spotify's Worldwide Song Ranking\" contains only 54 countries. <br><br>We needed to find the overlapping countries between these datasets to:\n",
-    "1. Create a new happiness ranking excluding the countries not found in the song ranking dataset, subsetted in the dataframe **happy**\n",
-    "<br>\n",
-    "2. Figure out which \"Spotify's Worldwide Song Rankings) country .csv files we do not need."
-   ]
->>>>>>> Stashed changes
   },
   {
    "cell_type": "code",
    "execution_count": 88,
+=======
+   "execution_count": 6,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
     {
@@ -583,6 +609,13 @@
     "        newrow={'country':happy2017.loc[row,'country'],'happiness_rank':happy2017.loc[row,'happiness_rank'],'happiness_score':happy2017.loc[row,'happiness_score']}\n",
     "        happy=happy.append(newrow, ignore_index=True)\n",
     "\n",
+    "        \n",
+    "#Noticed that Taiwan is referred to as Taiwan Province of China on Happy Index.\n",
+    "# newrow={'Country':happy2017.loc[32,'Country'],'Happiness.Rank':happy2017.loc[32,'Happiness.Rank'],'Happiness.Score':happy2017.loc[32,'Happiness.Score']}\n",
+    "# happy=happy.append(newrow, ignore_index=True)\n",
+    "\n",
+    "#allspotifydata[allspotifydata['Region']==country])\n",
+    "# allcountries.append(\"Taiwan\")\n",
     "print(\"There are \"+ str(len(allcountries)) +\" countries total that we can use to address our research question.\")\n",
     "print(\"\\n\")\n",
     "print('These are the spotify datsets we should use: ' + str(allcountries))\n",
@@ -592,10 +625,15 @@
    ]
   },
   {
+<<<<<<< HEAD
    "cell_type": "code",
    "execution_count": 89,
+=======
+   "cell_type": "markdown",
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "source": [
+<<<<<<< HEAD
     "#adding the countries we will work with based on the subset below in allcountries. We will use this to subset the first 50 songs below\n",
     "countries_to_subset = [norway, denmark, iceland, switzerland, finland, \n",
     "                       netherlands, canada, newzealand, sweden, australia, costarica, austria, \n",
@@ -623,17 +661,16 @@
    "metadata": {},
    "outputs": [],
    "source": [
-<<<<<<< Updated upstream
     "for country in countries_to_subset:\n",
     "    cleancol(country)"
 =======
-    "### B. Data cleaning for Spotify song ranking for country .csv files\n",
-    "#### 1. We don't need the top 200 songs per day in a year\n",
-    "The \"Spotify Worldwide Song Rankings\" from Kaggle is far too excessive for our analysis and research purposes. Providing the top 200 songs per day in a year means that each country .csv file should have around (365+9)x200=74,800 entries (the additional 9 days are because the data set includes the first 9 days of 2018). We decided that we would remove the bottom 150 songs per day in each country's dataset. <br>\n",
+    "### Data cleaning for Spotify song ranking for country .csv files\n",
+    "#### We don't need the top 200 songs per day in a year\n",
+    "The \"Spotify Worldwide Song Rankings\" from Kaggle is far too excessive for our analysis and research purposes. Providing the top 200 songs per day in a year means that each country .csv file should have around 365*200 (73,000) entries. We decided that we would remove the bottom 150 songs per day in each country's dataset. <br>\n",
     "It is possible that later we may decide to remove even more.\n",
     "The \"Spotify Worldwide Song Rankings\" from Kaggle is far too excessive for our analysis and research purposes. Providing the top 200 songs per day in a year means that each country .csv file should have around 365*200 (73,000) entries. We decided that we would remove the bottom 150 songs per day in each country's dataset. <br>\n",
     "It is possible that later we may decide to remove even more."
->>>>>>> Stashed changes
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    ]
   },
   {
@@ -654,254 +691,103 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 92,
+=======
+   "execution_count": 8,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [],
    "source": [
+    "#fake_norway = norway.groupby(norway.index//200).head(50)\n",
+    "\n",
     "def first_fifty(dataframe):\n",
     "    \"\"\"\n",
     "    This will get the first 50 observations in every 200 observations.\n",
     "    There should only be 200 observations in 1 day, and there are 365 days per country in this data,\n",
     "    which is the purpose of this function.\n",
     "    \n",
-    "    Parameter dataframe: this is the countrydatafram which we will work with.\n",
+    "    Parameter dataframe: this is the country's dataframe which we will work with.\n",
     "    Precondition: a pandas dataframe object\n",
     "    \"\"\"\n",
-    "    subset_data = dataframe.groupby(dataframe.index//200).head(50) \n",
-    "    dataframe = subset_data.copy()\n",
-    "    dataframe=dataframe.reset_index(drop=True)\n",
-    "    return dataframe\n",
-    "def cleancol(dataframe):\n",
-    "    dataframe.rename({\"Unnamed: 0\":\"a\"}, axis=\"columns\", inplace=True)\n",
-    "    dataframe.drop([\"a\"], axis=1, inplace=True)\n",
-    "for country in countries_to_subset:\n",
-    "    cleancol(country)\n"
+    "    dataframe = dataframe.groupby(dataframe.index//200).head(50) \n",
+    "#     dataframe = subset_data.copy()\n",
+    "#     return dataframe"
    ]
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 93,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Now deleting the bottom 150 songs per day in each country...\n",
-      "norway length before: 74200\n",
-      "norway length after: 74200\n",
-      "denmark length before: 74200\n",
-      "denmark length after: 74200\n",
-      "iceland length before: 35835\n",
-      "iceland length after: 35835\n",
-      "switzerland length before: 74200\n",
-      "switzerland length after: 74200\n",
-      "finland length before: 74200\n",
-      "finland length after: 74200\n",
-      "netherlands length before: 74200\n",
-      "netherlands length after: 74200\n",
-      "canada length before: 74200\n",
-      "canada length after: 74200\n",
-      "newzealand length before: 74200\n",
-      "newzealand length after: 74200\n",
-      "sweden length before: 74200\n",
-      "sweden length after: 74200\n",
-      "australia length before: 74200\n",
-      "australia length after: 74200\n",
-      "costarica length before: 74200\n",
-      "costarica length after: 74200\n",
-      "austria length before: 74200\n",
-      "austria length after: 74200\n",
-      "unitedstates length before: 74200\n",
-      "unitedstates length after: 74200\n",
-      "ireland length before: 74200\n",
-      "ireland length after: 74200\n",
-      "germany length before: 74200\n",
-      "germany length after: 74200\n",
-      "belgium length before: 74200\n",
-      "belgium length after: 74200\n",
-      "luxembourg length before: 4098\n",
-      "luxembourg length after: 4098\n",
-      "unitedkingdom length before: 74200\n",
-      "unitedkingdom length after: 74200\n",
-      "chile length before: 74200\n",
-      "chile length after: 74200\n",
-      "brazil length before: 74200\n",
-      "brazil length after: 74200\n",
-      "czechrepublic length before: 73091\n",
-      "czechrepublic length after: 73091\n",
-      "argentina length before: 74200\n",
-      "argentina length after: 74200\n",
-      "mexico length before: 74200\n",
-      "mexico length after: 74200\n",
-      "singapore length before: 74200\n",
-      "singapore length after: 74200\n",
-      "uruguay length before: 67816\n",
-      "uruguay length after: 67816\n",
-      "guatemala length before: 68654\n",
-      "guatemala length after: 68654\n",
-      "panama length before: 52498\n",
-      "panama length after: 52498\n",
-      "france length before: 74200\n",
-      "france length after: 74200\n",
-      "taiwanprovinceofchina length before: 74200\n",
-      "taiwanprovinceofchina length after: 74200\n",
-      "spain length before: 74200\n",
-      "spain length after: 74200\n",
-      "colombia length before: 22597\n",
-      "colombia length after: 22597\n",
-      "slovakia length before: 74000\n",
-      "slovakia length after: 74000\n",
-      "malaysia length before: 74200\n",
-      "malaysia length after: 74200\n",
-      "ecuador length before: 38893\n",
-      "ecuador length after: 38893\n",
-      "elsalvador length before: 74200\n",
-      "elsalvador length after: 74200\n",
-      "poland length before: 74200\n",
-      "poland length after: 74200\n",
-      "italy length before: 72599\n",
-      "italy length after: 72599\n",
-      "japan length before: 16799\n",
-      "japan length after: 16799\n",
-      "lithuania length before: 19365\n",
-      "lithuania length after: 19365\n",
-      "latvia length before: 39838\n",
-      "latvia length after: 39838\n",
-      "bolivia length before: 74200\n",
-      "bolivia length after: 74200\n",
-      "peru length before: 12823\n",
-      "peru length after: 12823\n",
-      "estonia length before: 74200\n",
-      "estonia length after: 74200\n",
-      "turkey length before: 55797\n",
-      "turkey length after: 55797\n",
-      "paraguay length before: 74200\n",
-      "paraguay length after: 74200\n",
-      "philippines length before: 60172\n",
-      "philippines length after: 60172\n",
-      "hungary length before: 74200\n",
-      "hungary length after: 74200\n",
-      "indonesia length before: 60748\n",
-      "indonesia length after: 60748\n",
-      "dominicanrepublic length before: 27192\n",
-      "dominicanrepublic length after: 27192\n",
-      "greece length before: 74200\n",
-      "greece length after: 74200\n",
-      "portugal length before: 41782\n",
-      "portugal length after: 41782\n",
-      "honduras length before: 74200\n",
-      "honduras length after: 74200\n"
-     ]
-    }
-   ],
-   "source": [
-    "# FAILED CODE!!! Please see VI. QUESTIONS FOR REVIEWERS\n",
-    "# Our for-loop did not work, as shown in our print statements.\n",
-    "\n",
-    "#running each country in countries_to_subset through the first_fifty procedure\n",
-    "print(\"Now deleting the bottom 150 songs per day in each country...\")\n",
-    "x=0\n",
-    "for file in countries_to_subset: \n",
-    "    print(allcountries[x]+\" length before: \"+str(len(countries_to_subset[x])))\n",
-    "    first_fifty(file)\n",
-    "    #countries_to_subset[x]=first_fifty(file)\n",
-    "    print(allcountries[x]+\" length after: \"+str(len(countries_to_subset[x])))\n",
-    "    x=x+1"
-   ]
-  },
-  {
-   "cell_type": "code",
-<<<<<<< Updated upstream
-   "execution_count": 94,
 =======
-   "execution_count": 15,
->>>>>>> Stashed changes
+   "execution_count": 9,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [],
    "source": [
-    "# doing it by hand\n",
-    "norway = first_fifty(norway)\n",
-    "denmark= first_fifty(denmark)\n",
-    "iceland = first_fifty(iceland)\n",
-    "switzerland= first_fifty(switzerland)\n",
-    "finland = first_fifty(finland)\n",
-    "netherlands= first_fifty(netherlands)\n",
-    "canada = first_fifty(canada)\n",
-    "newzealand= first_fifty(newzealand)\n",
-    "sweden= first_fifty(sweden)\n",
-    "australia= first_fifty(australia)\n",
-    "costarica= first_fifty(costarica)\n",
-    "austria = first_fifty(austria)\n",
-    "unitedstates= first_fifty(unitedstates)\n",
-    "ireland= first_fifty(ireland)\n",
-    "germany= first_fifty(germany)\n",
-    "belgium= first_fifty(belgium)\n",
-    "luxembourg= first_fifty(luxembourg)\n",
-    "unitedkingdom= first_fifty(unitedkingdom)\n",
-    "chile= first_fifty(chile)\n",
-    "brazil= first_fifty(brazil)\n",
-    "czechrepublic= first_fifty(czechrepublic)\n",
-    "argentina= first_fifty(argentina)\n",
-    "mexico= first_fifty(mexico)\n",
-    "singapore= first_fifty(singapore)\n",
-    "uruguay= first_fifty(uruguay)\n",
-    "guatemala= first_fifty(guatemala)\n",
-    "panama= first_fifty(panama)\n",
-    "france= first_fifty(france)\n",
-    "spain= first_fifty(spain)\n",
-    "colombia= first_fifty(colombia)\n",
-    "slovakia= first_fifty(slovakia)\n",
-    "malaysia= first_fifty(malaysia)\n",
-    "ecuador= first_fifty(ecuador)\n",
-    "elsalvador= first_fifty(elsalvador)\n",
-    "poland= first_fifty(poland)\n",
-    "italy= first_fifty(italy)\n",
-    "japan= first_fifty(japan)\n",
-    "lithuania= first_fifty(lithuania)\n",
-    "latvia= first_fifty(latvia)\n",
-    "bolivia= first_fifty(bolivia)\n",
-    "peru= first_fifty(peru)\n",
-    "estonia= first_fifty(estonia)\n",
-    "turkey= first_fifty(turkey)\n",
-    "paraguay= first_fifty(paraguay)\n",
-    "philippines= first_fifty(philippines)\n",
-    "hungary= first_fifty(hungary)\n",
-    "indonesia= first_fifty(indonesia)\n",
-    "dominicanrepublic= first_fifty(dominicanrepublic)\n",
-    "greece= first_fifty(greece)\n",
-    "portugal= first_fifty(portugal)\n",
-    "honduras= first_fifty(honduras)\n",
-    "taiwanprovinceofchina= first_fifty(taiwanprovinceofchina)"
+    "#running each country in countries_to_subset through the first_fifty procedure\n",
+    "for file in countries_to_subset: \n",
+    "    first_fifty(file)"
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# ?????\n",
+    "#### Brief Explanation of Code Above\n",
+    "This part is attaching these new subsetted dataframes to each country's name and adding 1 to it, as to not alter the original dataframe.\n",
+    "\n",
+    "Ex: The original Norway dataframe contains all the subsetted data of 50 observations for every 200 songs (day) in the now-new dataframe Norway1"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 94,
+=======
+   "execution_count": 10,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# taiwan1.head()"
+   ]
+  },
+  {
+<<<<<<< HEAD
    "cell_type": "code",
    "execution_count": 95,
-   "metadata": {},
-   "source": [
-    "#### 2. We cannot use the data from 2018\n",
-    "We only have happiness rankings for the year of 2017, but the Spotify rankings start in January 1, 2017 and stop at January 9, 2018. Though this is only 9 days in 2018, we cannot use this part of the data set.\n",
-    "<br>\n",
-    "To maintain consistency in out datasets, the function below is excludes all observations, or songs, from 2018."
-   ]
-  },
-  {
-<<<<<<< Updated upstream
-   "cell_type": "code",
-   "execution_count": 96,
 =======
    "cell_type": "markdown",
->>>>>>> Stashed changes
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "source": [
-    "#### 3. Delete column containing leftover indices from data.csv\n",
-    "Using `norway` as an example, you can see that there is an \"Unnamed:0\" column in the first spot. These numbers are the original indices from data.csv, the file directly taken from Kaggle that contained all 54 countries in one file."
+    "#### We cannot use the data from 2018\n",
+    "We only have happiness rankings for the year of 2017, but the Spotify rankings start in January 1, 2017 and stop at January 9, 2018. Though this is only 9 days in 2018, we cannot use this part of the data set.\n",
+    "<br.\n",
+    "To maintain consistency in out datasets, the function below is excludes all observations, or songs, from 2018 accidentally subsetted in our dataframe. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+<<<<<<< HEAD
+   "execution_count": 96,
+=======
+   "execution_count": 11,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def not18(dataframe):\n",
+    "    dataframe['Date'] = pd.to_datetime(dataframe['Date'])\n",
+    "    dataframe = dataframe[dataframe['Date'].dt.year != 2018]\n",
+    "    return dataframe"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
    "metadata": {},
    "outputs": [
     {
@@ -991,56 +877,168 @@
        "      <td>2017-01-01</td>\n",
        "      <td>no</td>\n",
        "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>72395</th>\n",
+       "      <td>369195</td>\n",
+       "      <td>196</td>\n",
+       "      <td>Bade naken</td>\n",
+       "      <td>Plumbo</td>\n",
+       "      <td>12700</td>\n",
+       "      <td>https://open.spotify.com/track/4vGVOcH8F0O0TkT...</td>\n",
+       "      <td>2017-12-31</td>\n",
+       "      <td>no</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>72396</th>\n",
+       "      <td>369196</td>\n",
+       "      <td>197</td>\n",
+       "      <td>Happy - From \"Despicable Me 2\"</td>\n",
+       "      <td>Pharrell Williams</td>\n",
+       "      <td>12627</td>\n",
+       "      <td>https://open.spotify.com/track/5b88tNINg4Q4nrR...</td>\n",
+       "      <td>2017-12-31</td>\n",
+       "      <td>no</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>72397</th>\n",
+       "      <td>369197</td>\n",
+       "      <td>198</td>\n",
+       "      <td>Would You Ever</td>\n",
+       "      <td>Skrillex</td>\n",
+       "      <td>12616</td>\n",
+       "      <td>https://open.spotify.com/track/57p8CBvPOxrvyCb...</td>\n",
+       "      <td>2017-12-31</td>\n",
+       "      <td>no</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>72398</th>\n",
+       "      <td>369198</td>\n",
+       "      <td>199</td>\n",
+       "      <td>False Alarm</td>\n",
+       "      <td>Matoma</td>\n",
+       "      <td>12535</td>\n",
+       "      <td>https://open.spotify.com/track/7gZQfdEQpmwAoPH...</td>\n",
+       "      <td>2017-12-31</td>\n",
+       "      <td>no</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>72399</th>\n",
+       "      <td>369199</td>\n",
+       "      <td>200</td>\n",
+       "      <td>Driving Home For Christmas</td>\n",
+       "      <td>Chris Rea</td>\n",
+       "      <td>12505</td>\n",
+       "      <td>https://open.spotify.com/track/0ZoHHROTzwIYeNA...</td>\n",
+       "      <td>2017-12-31</td>\n",
+       "      <td>no</td>\n",
+       "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
+       "<p>72400 rows × 8 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
-       "   Unnamed: 0  Position                                         Track Name  \\\n",
-       "0      296800         1                                              Alone   \n",
-       "1      296801         2            Rockabye (feat. Sean Paul & Anne-Marie)   \n",
-       "2      296802         3  I Don’t Wanna Live Forever (Fifty Shades Darke...   \n",
-       "3      296803         4            Call On Me - Ryan Riback Extended Remix   \n",
-       "4      296804         5                                   I Feel It Coming   \n",
+       "       Unnamed: 0  Position  \\\n",
+       "0          296800         1   \n",
+       "1          296801         2   \n",
+       "2          296802         3   \n",
+       "3          296803         4   \n",
+       "4          296804         5   \n",
+       "...           ...       ...   \n",
+       "72395      369195       196   \n",
+       "72396      369196       197   \n",
+       "72397      369197       198   \n",
+       "72398      369198       199   \n",
+       "72399      369199       200   \n",
        "\n",
-       "         Artist  Streams                                                URL  \\\n",
-       "0   Alan Walker   103886  https://open.spotify.com/track/0JiVRyTJcJnmlwC...   \n",
-       "1  Clean Bandit    85990  https://open.spotify.com/track/5knuzwU65gJK7IF...   \n",
-       "2          ZAYN    68706  https://open.spotify.com/track/3NdDpSvN911VPGi...   \n",
-       "3       Starley    60334  https://open.spotify.com/track/78rIJddV4X0HkNA...   \n",
-       "4    The Weeknd    56607  https://open.spotify.com/track/5GXAXm5YOmYT0kL...   \n",
+       "                                              Track Name             Artist  \\\n",
+       "0                                                  Alone        Alan Walker   \n",
+       "1                Rockabye (feat. Sean Paul & Anne-Marie)       Clean Bandit   \n",
+       "2      I Don’t Wanna Live Forever (Fifty Shades Darke...               ZAYN   \n",
+       "3                Call On Me - Ryan Riback Extended Remix            Starley   \n",
+       "4                                       I Feel It Coming         The Weeknd   \n",
+       "...                                                  ...                ...   \n",
+       "72395                                         Bade naken             Plumbo   \n",
+       "72396                     Happy - From \"Despicable Me 2\"  Pharrell Williams   \n",
+       "72397                                     Would You Ever           Skrillex   \n",
+       "72398                                        False Alarm             Matoma   \n",
+       "72399                         Driving Home For Christmas          Chris Rea   \n",
        "\n",
-       "        Date Region  \n",
-       "0 2017-01-01     no  \n",
-       "1 2017-01-01     no  \n",
-       "2 2017-01-01     no  \n",
-       "3 2017-01-01     no  \n",
-       "4 2017-01-01     no  "
+       "       Streams                                                URL       Date  \\\n",
+       "0       103886  https://open.spotify.com/track/0JiVRyTJcJnmlwC... 2017-01-01   \n",
+       "1        85990  https://open.spotify.com/track/5knuzwU65gJK7IF... 2017-01-01   \n",
+       "2        68706  https://open.spotify.com/track/3NdDpSvN911VPGi... 2017-01-01   \n",
+       "3        60334  https://open.spotify.com/track/78rIJddV4X0HkNA... 2017-01-01   \n",
+       "4        56607  https://open.spotify.com/track/5GXAXm5YOmYT0kL... 2017-01-01   \n",
+       "...        ...                                                ...        ...   \n",
+       "72395    12700  https://open.spotify.com/track/4vGVOcH8F0O0TkT... 2017-12-31   \n",
+       "72396    12627  https://open.spotify.com/track/5b88tNINg4Q4nrR... 2017-12-31   \n",
+       "72397    12616  https://open.spotify.com/track/57p8CBvPOxrvyCb... 2017-12-31   \n",
+       "72398    12535  https://open.spotify.com/track/7gZQfdEQpmwAoPH... 2017-12-31   \n",
+       "72399    12505  https://open.spotify.com/track/0ZoHHROTzwIYeNA... 2017-12-31   \n",
+       "\n",
+       "      Region  \n",
+       "0         no  \n",
+       "1         no  \n",
+       "2         no  \n",
+       "3         no  \n",
+       "4         no  \n",
+       "...      ...  \n",
+       "72395     no  \n",
+       "72396     no  \n",
+       "72397     no  \n",
+       "72398     no  \n",
+       "72399     no  \n",
+       "\n",
+       "[72400 rows x 8 columns]"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 12,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "norway.head()"
+    "# FAILED CODE\n",
+    "# We wanted not18 to run as a procedure so that we could loop it through countries_to_subset. Unfortunately this did not work, \n",
+    "# so we had to call not18() on every country .csv\n",
+    "\n",
+    "#for file in countries_to_subset: \n",
+    "#    not18(file)\n",
+    "not18(norway)\n",
+    "## estelle's commments\n",
+    "## shouldn't there be much less than 72,400 rows? 365x200 is 73,000. did the first_fifty not work\n",
+    "## also, should we just call not18(norway) why do we use an assignment statement norway2=not18(norway)\n",
+    "## also what is the unamed column"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "The following function `not18` will both delete rows with 2018 dates and remove the first column."
+    "# ???\n",
+    "### Example of the function not18 above\n",
+    "This is taking one of our country datasets (Iceland), which – as shown from the result– only takes into account songs from January 2017 until December 2017."
    ]
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 97,
 =======
-   "execution_count": 11,
->>>>>>> Stashed changes
+   "execution_count": 13,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
     {
@@ -1052,7 +1050,6 @@
     }
    ],
    "source": [
-<<<<<<< Updated upstream
     "#using not18() procedure on all country .csv \n",
     "norway2 = not18(norway)\n",
     "denmark2= not18(denmark)\n",
@@ -1105,38 +1102,23 @@
     "greece2= not18(greece)\n",
     "portugal2= not18(portugal)\n",
     "honduras2= not18(honduras)\n",
+<<<<<<< HEAD
     "taiwanprovinceofchina2= not18(taiwanprovinceofchina)\n",
     "print(belgium2.shape)"
 =======
-    "def not18(dataframe):\n",
-    "    \"\"\"\n",
-    "    This will delete any row containing the year 2018 in the 'Date' column.\n",
-    "    This will also delete the first column in the data frame.\n",
-    "    \n",
-    "    Parameter dataframe: this is the country's dataframe which we will work with.\n",
-    "    Precondition: a pandas dataframe object\n",
-    "    \"\"\"\n",
-    "    dataframe = dataframe[dataframe['Date'].dt.year != 2018]\n",
-    "    return dataframe"
->>>>>>> Stashed changes
+    "taiwan2= not18(taiwanprovinceofchina)"
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    ]
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 99,
 =======
-   "execution_count": 12,
->>>>>>> Stashed changes
+   "execution_count": 14,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Unfortunately the 2018 dates did not disappear...\n"
-     ]
-    },
     {
      "data": {
       "text/html": [
@@ -1169,78 +1151,53 @@
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-<<<<<<< Updated upstream
        "      <th>72395</th>\n",
-=======
-       "      <th>74195</th>\n",
-       "      <td>370995</td>\n",
->>>>>>> Stashed changes
        "      <td>196</td>\n",
-       "      <td>Sucker for You</td>\n",
-       "      <td>Matt Terry</td>\n",
-       "      <td>9267</td>\n",
-       "      <td>https://open.spotify.com/track/4vkVvmjIiQibQ6z...</td>\n",
-       "      <td>2018-01-09</td>\n",
+       "      <td>Bade naken</td>\n",
+       "      <td>Plumbo</td>\n",
+       "      <td>12700</td>\n",
+       "      <td>https://open.spotify.com/track/4vGVOcH8F0O0TkT...</td>\n",
+       "      <td>2017-12-31</td>\n",
        "      <td>no</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-<<<<<<< Updated upstream
        "      <th>72396</th>\n",
-=======
-       "      <th>74196</th>\n",
-       "      <td>370996</td>\n",
->>>>>>> Stashed changes
        "      <td>197</td>\n",
-       "      <td>HUMBLE. - SKRILLEX REMIX</td>\n",
-       "      <td>Skrillex</td>\n",
-       "      <td>9167</td>\n",
-       "      <td>https://open.spotify.com/track/4d0vDZBKQFL4sVB...</td>\n",
-       "      <td>2018-01-09</td>\n",
+       "      <td>Happy - From \"Despicable Me 2\"</td>\n",
+       "      <td>Pharrell Williams</td>\n",
+       "      <td>12627</td>\n",
+       "      <td>https://open.spotify.com/track/5b88tNINg4Q4nrR...</td>\n",
+       "      <td>2017-12-31</td>\n",
        "      <td>no</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-<<<<<<< Updated upstream
        "      <th>72397</th>\n",
-=======
-       "      <th>74197</th>\n",
-       "      <td>370997</td>\n",
->>>>>>> Stashed changes
        "      <td>198</td>\n",
-       "      <td>SUBEME LA RADIO</td>\n",
-       "      <td>Enrique Iglesias</td>\n",
-       "      <td>9160</td>\n",
-       "      <td>https://open.spotify.com/track/7nKBxz47S9SD79N...</td>\n",
-       "      <td>2018-01-09</td>\n",
+       "      <td>Would You Ever</td>\n",
+       "      <td>Skrillex</td>\n",
+       "      <td>12616</td>\n",
+       "      <td>https://open.spotify.com/track/57p8CBvPOxrvyCb...</td>\n",
+       "      <td>2017-12-31</td>\n",
        "      <td>no</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-<<<<<<< Updated upstream
        "      <th>72398</th>\n",
-=======
-       "      <th>74198</th>\n",
-       "      <td>370998</td>\n",
->>>>>>> Stashed changes
        "      <td>199</td>\n",
-       "      <td>Anyway</td>\n",
-       "      <td>Tyron Hapi</td>\n",
-       "      <td>9150</td>\n",
-       "      <td>https://open.spotify.com/track/77ngtwBosDuAwiQ...</td>\n",
-       "      <td>2018-01-09</td>\n",
+       "      <td>False Alarm</td>\n",
+       "      <td>Matoma</td>\n",
+       "      <td>12535</td>\n",
+       "      <td>https://open.spotify.com/track/7gZQfdEQpmwAoPH...</td>\n",
+       "      <td>2017-12-31</td>\n",
        "      <td>no</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-<<<<<<< Updated upstream
        "      <th>72399</th>\n",
-=======
-       "      <th>74199</th>\n",
-       "      <td>370999</td>\n",
->>>>>>> Stashed changes
        "      <td>200</td>\n",
-       "      <td>Redbone</td>\n",
-       "      <td>Childish Gambino</td>\n",
-       "      <td>9046</td>\n",
-       "      <td>https://open.spotify.com/track/3kxfsdsCpFgN412...</td>\n",
-       "      <td>2018-01-09</td>\n",
+       "      <td>Driving Home For Christmas</td>\n",
+       "      <td>Chris Rea</td>\n",
+       "      <td>12505</td>\n",
+       "      <td>https://open.spotify.com/track/0ZoHHROTzwIYeNA...</td>\n",
+       "      <td>2017-12-31</td>\n",
        "      <td>no</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
@@ -1248,7 +1205,7 @@
        "</div>"
       ],
       "text/plain": [
-<<<<<<< Updated upstream
+<<<<<<< HEAD
        "       Position                      Track Name             Artist  Streams  \\\n",
        "72395       196                      Bade naken             Plumbo    12700   \n",
        "72396       197  Happy - From \"Despicable Me 2\"  Pharrell Williams    12627   \n",
@@ -1256,141 +1213,37 @@
        "72398       199                     False Alarm             Matoma    12535   \n",
        "72399       200      Driving Home For Christmas          Chris Rea    12505   \n",
 =======
-       "       Unnamed: 0  Position                Track Name            Artist  \\\n",
-       "74195      370995       196            Sucker for You        Matt Terry   \n",
-       "74196      370996       197  HUMBLE. - SKRILLEX REMIX          Skrillex   \n",
-       "74197      370997       198           SUBEME LA RADIO  Enrique Iglesias   \n",
-       "74198      370998       199                    Anyway        Tyron Hapi   \n",
-       "74199      370999       200                   Redbone  Childish Gambino   \n",
+       "       Unnamed: 0  Position                      Track Name  \\\n",
+       "72395      369195       196                      Bade naken   \n",
+       "72396      369196       197  Happy - From \"Despicable Me 2\"   \n",
+       "72397      369197       198                  Would You Ever   \n",
+       "72398      369198       199                     False Alarm   \n",
+       "72399      369199       200      Driving Home For Christmas   \n",
        "\n",
-       "       Streams                                                URL       Date  \\\n",
-       "74195     9267  https://open.spotify.com/track/4vkVvmjIiQibQ6z... 2018-01-09   \n",
-       "74196     9167  https://open.spotify.com/track/4d0vDZBKQFL4sVB... 2018-01-09   \n",
-       "74197     9160  https://open.spotify.com/track/7nKBxz47S9SD79N... 2018-01-09   \n",
-       "74198     9150  https://open.spotify.com/track/77ngtwBosDuAwiQ... 2018-01-09   \n",
-       "74199     9046  https://open.spotify.com/track/3kxfsdsCpFgN412... 2018-01-09   \n",
->>>>>>> Stashed changes
+       "                  Artist  Streams  \\\n",
+       "72395             Plumbo    12700   \n",
+       "72396  Pharrell Williams    12627   \n",
+       "72397           Skrillex    12616   \n",
+       "72398             Matoma    12535   \n",
+       "72399          Chris Rea    12505   \n",
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
        "\n",
-       "      Region  \n",
-       "74195     no  \n",
-       "74196     no  \n",
-       "74197     no  \n",
-       "74198     no  \n",
-       "74199     no  "
+       "                                                     URL       Date Region  \n",
+       "72395  https://open.spotify.com/track/4vGVOcH8F0O0TkT... 2017-12-31     no  \n",
+       "72396  https://open.spotify.com/track/5b88tNINg4Q4nrR... 2017-12-31     no  \n",
+       "72397  https://open.spotify.com/track/57p8CBvPOxrvyCb... 2017-12-31     no  \n",
+       "72398  https://open.spotify.com/track/7gZQfdEQpmwAoPH... 2017-12-31     no  \n",
+       "72399  https://open.spotify.com/track/0ZoHHROTzwIYeNA... 2017-12-31     no  "
+<<<<<<< HEAD
       ]
      },
-<<<<<<< Updated upstream
      "execution_count": 99,
 =======
-     "execution_count": 12,
->>>>>>> Stashed changes
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-<<<<<<< Updated upstream
-=======
-   "source": [
-    "# FAILED CODE!!! Please see VI. QUESTIONS FOR REVIEWERS\n",
-    "# We wanted not18 to run as a procedure so that we could loop it through countries_to_subset. Unfortunately this did not work.\n",
-    "\n",
-    "x=0\n",
-    "for file in countries_to_subset: \n",
-    "#    not18(file) #this does not work\n",
-    "#    file=not18(file) #this does not work\n",
-    "    countries_to_subset[x]=not18(file) #this does not work\n",
-    "    x=x+1\n",
-    "print(\"Unfortunately the 2018 dates did not disappear...\")\n",
-    "norway.tail()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 16,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "10250"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "#using not18() procedure on all country .csv because our for-loop did not work \n",
-    "not18(norway)\n",
-    "not18(denmark)\n",
-    "not18(iceland)\n",
-    "not18(switzerland)\n",
-    "not18(finland)\n",
-    "not18(netherlands)\n",
-    "not18(canada)\n",
-    "not18(newzealand)\n",
-    "not18(sweden)\n",
-    "not18(australia)\n",
-    "not18(costarica)\n",
-    "not18(austria)\n",
-    "not18(unitedstates)\n",
-    "not18(ireland)\n",
-    "not18(germany)\n",
-    "not18(belgium)\n",
-    "not18(luxembourg)\n",
-    "not18(unitedkingdom)\n",
-    "not18(chile)\n",
-    "not18(brazil)\n",
-    "not18(czechrepublic)\n",
-    "not18(argentina)\n",
-    "not18(mexico)\n",
-    "not18(singapore)\n",
-    "not18(uruguay)\n",
-    "not18(guatemala)\n",
-    "not18(panama)\n",
-    "not18(france)\n",
-    "not18(spain)\n",
-    "not18(colombia)\n",
-    "not18(slovakia)\n",
-    "not18(malaysia)\n",
-    "not18(ecuador)\n",
-    "not18(elsalvador)\n",
-    "not18(poland)\n",
-    "not18(italy)\n",
-    "not18(japan)\n",
-    "not18(lithuania)\n",
-    "not18(latvia)\n",
-    "not18(bolivia)\n",
-    "not18(peru)\n",
-    "not18(estonia)\n",
-    "not18(turkey)\n",
-    "not18(paraguay)\n",
-    "not18(philippines)\n",
-    "not18(hungary)\n",
-    "not18(indonesia)\n",
-    "not18(dominicanrepublic)\n",
-    "not18(greece)\n",
-    "not18(portugal)\n",
-    "honduras=not18(honduras)\n",
-    "len(honduras)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "metadata": {},
-   "outputs": [
-    {
-     "ename": "NameError",
-     "evalue": "name 'norway2' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-14-1920824c0de9>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mnorway2\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mtail\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[1;31mNameError\u001b[0m: name 'norway2' is not defined"
-     ]
     }
    ],
    "source": [
@@ -1418,10 +1271,85 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 24,
    "metadata": {},
-   "outputs": [],
->>>>>>> Stashed changes
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>country</th>\n",
+       "      <th>happiness_rank</th>\n",
+       "      <th>happiness_score</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Norway</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>7.537</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Denmark</td>\n",
+       "      <td>2.0</td>\n",
+       "      <td>7.522</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Iceland</td>\n",
+       "      <td>3.0</td>\n",
+       "      <td>7.504</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Switzerland</td>\n",
+       "      <td>4.0</td>\n",
+       "      <td>7.494</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Finland</td>\n",
+       "      <td>5.0</td>\n",
+       "      <td>7.469</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       country  happiness_rank  happiness_score\n",
+       "0       Norway             1.0            7.537\n",
+       "1      Denmark             2.0            7.522\n",
+       "2      Iceland             3.0            7.504\n",
+       "3  Switzerland             4.0            7.494\n",
+       "4      Finland             5.0            7.469"
+      ]
+     },
+     "execution_count": 24,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
     "happy.head()"
    ]
@@ -1442,8 +1370,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "#### II. \"Spotify's World Song Rankings\"\n",
-    "##### Column Descriptions"
+    "#### II. \"Spotify's World Song Rankings\""
    ]
   },
   {
@@ -1473,11 +1400,11 @@
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 100,
 =======
-   "execution_count": null,
->>>>>>> Stashed changes
+   "execution_count": 16,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1490,8 +1417,11 @@
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 101,
+=======
+   "execution_count": 17,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
     {
@@ -1508,11 +1438,6 @@
      ]
     }
    ],
-=======
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
->>>>>>> Stashed changes
    "source": [
     "for x in norway2:\n",
     "    print(x)"
@@ -1520,11 +1445,11 @@
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 102,
 =======
-   "execution_count": null,
->>>>>>> Stashed changes
+   "execution_count": 18,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1541,11 +1466,11 @@
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 103,
 =======
-   "execution_count": null,
->>>>>>> Stashed changes
+   "execution_count": 19,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1560,15 +1485,267 @@
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 104,
+=======
+   "execution_count": 20,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
+<<<<<<< HEAD
       "/Users/Eva/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:8: SettingWithCopyWarning: \n",
+=======
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+      "A value is trying to be set on a copy of a slice from a DataFrame\n",
+      "\n",
+      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
+      "  d.dropna(inplace=True)\n",
+      "<ipython-input-18-86291cf23292>:8: SettingWithCopyWarning: \n",
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
       "A value is trying to be set on a copy of a slice from a DataFrame\n",
       "\n",
       "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
@@ -1581,13 +1758,6 @@
      ]
     }
    ],
-=======
-   "execution_count": null,
-   "metadata": {
-    "scrolled": true
-   },
-   "outputs": [],
->>>>>>> Stashed changes
    "source": [
     "for file in filez:\n",
     "    change(file)"
@@ -1595,7 +1765,7 @@
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
+<<<<<<< HEAD
    "execution_count": 105,
    "metadata": {},
    "outputs": [
@@ -1605,6 +1775,128 @@
      "text": [
       "(72390, 7)\n"
      ]
+=======
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>unnamed:_0</th>\n",
+       "      <th>position</th>\n",
+       "      <th>track_name</th>\n",
+       "      <th>artist</th>\n",
+       "      <th>streams</th>\n",
+       "      <th>url</th>\n",
+       "      <th>date</th>\n",
+       "      <th>region</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1647322</td>\n",
+       "      <td>1</td>\n",
+       "      <td>Hey Baby</td>\n",
+       "      <td>Dimitri Vegas &amp; Like Mike</td>\n",
+       "      <td>23277</td>\n",
+       "      <td>https://open.spotify.com/track/6yc377A8qxHIjPU...</td>\n",
+       "      <td>2017-01-01</td>\n",
+       "      <td>be</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1647323</td>\n",
+       "      <td>2</td>\n",
+       "      <td>Closer</td>\n",
+       "      <td>The Chainsmokers</td>\n",
+       "      <td>17456</td>\n",
+       "      <td>https://open.spotify.com/track/7BKLCZ1jbUBVqRi...</td>\n",
+       "      <td>2017-01-01</td>\n",
+       "      <td>be</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1647324</td>\n",
+       "      <td>3</td>\n",
+       "      <td>Starboy</td>\n",
+       "      <td>The Weeknd</td>\n",
+       "      <td>17374</td>\n",
+       "      <td>https://open.spotify.com/track/5aAx2yezTd8zXrk...</td>\n",
+       "      <td>2017-01-01</td>\n",
+       "      <td>be</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>1647325</td>\n",
+       "      <td>4</td>\n",
+       "      <td>Rockabye (feat. Sean Paul &amp; Anne-Marie)</td>\n",
+       "      <td>Clean Bandit</td>\n",
+       "      <td>16763</td>\n",
+       "      <td>https://open.spotify.com/track/5knuzwU65gJK7IF...</td>\n",
+       "      <td>2017-01-01</td>\n",
+       "      <td>be</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>1647326</td>\n",
+       "      <td>5</td>\n",
+       "      <td>What Is Love 2016</td>\n",
+       "      <td>Lost Frequencies</td>\n",
+       "      <td>16197</td>\n",
+       "      <td>https://open.spotify.com/track/5hIR7SX1fSrr5ev...</td>\n",
+       "      <td>2017-01-01</td>\n",
+       "      <td>be</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   unnamed:_0  position                               track_name  \\\n",
+       "0     1647322         1                                 Hey Baby   \n",
+       "1     1647323         2                                   Closer   \n",
+       "2     1647324         3                                  Starboy   \n",
+       "3     1647325         4  Rockabye (feat. Sean Paul & Anne-Marie)   \n",
+       "4     1647326         5                        What Is Love 2016   \n",
+       "\n",
+       "                      artist  streams  \\\n",
+       "0  Dimitri Vegas & Like Mike    23277   \n",
+       "1           The Chainsmokers    17456   \n",
+       "2                 The Weeknd    17374   \n",
+       "3               Clean Bandit    16763   \n",
+       "4           Lost Frequencies    16197   \n",
+       "\n",
+       "                                                 url       date region  \n",
+       "0  https://open.spotify.com/track/6yc377A8qxHIjPU... 2017-01-01     be  \n",
+       "1  https://open.spotify.com/track/7BKLCZ1jbUBVqRi... 2017-01-01     be  \n",
+       "2  https://open.spotify.com/track/5aAx2yezTd8zXrk... 2017-01-01     be  \n",
+       "3  https://open.spotify.com/track/5knuzwU65gJK7IF... 2017-01-01     be  \n",
+       "4  https://open.spotify.com/track/5hIR7SX1fSrr5ev... 2017-01-01     be  "
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
     }
    ],
    "source": [
@@ -1615,7 +1907,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 106,
+=======
+   "execution_count": 23,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
    "metadata": {},
    "outputs": [
     {
@@ -1624,7 +1920,11 @@
        "Text(0.5, 1.0, 'Country Happiness Score 2017')"
       ]
      },
+<<<<<<< HEAD
      "execution_count": 106,
+=======
+     "execution_count": 23,
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -1652,6 +1952,7 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
    "execution_count": 107,
    "metadata": {},
    "outputs": [
@@ -1742,18 +2043,12 @@
      "output_type": "execute_result"
     }
    ],
-=======
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
->>>>>>> Stashed changes
    "source": [
     "happy.describe()"
    ]
   },
   {
    "cell_type": "code",
-<<<<<<< Updated upstream
    "execution_count": 108,
    "metadata": {},
    "outputs": [],
@@ -1815,11 +2110,6 @@
      ]
     }
    ],
-=======
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
->>>>>>> Stashed changes
    "source": [
     "print(len(belgium2.columns))\n",
     "print(len(norway2.columns))"
@@ -2015,6 +2305,14 @@
    "metadata": {},
    "outputs": [],
    "source": []
+=======
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "happy.describe()"
+   ]
+>>>>>>> f685729bca7305465e38957b60b335f487d06ba4
   }
  ],
  "metadata": {
