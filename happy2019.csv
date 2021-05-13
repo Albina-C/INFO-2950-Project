@@ -1,21 +1,21 @@
-,happiness_rank,country,happiness_score
-0,1,Finland,7.769
-1,2,Denmark,7.6
-2,3,Norway,7.553999999999999
-3,4,Iceland,7.494
-4,5,Netherlands,7.4879999999999995
-5,6,Switzerland,7.48
-6,7,Sweden,7.343
-7,8,New Zealand,7.307
-8,9,Canada,7.278
-9,10,Austria,7.246
-10,66,Portugal,5.693
-11,69,Philippines,5.631
-12,76,Hong Kong,5.43
-13,77,Dominican Republic,5.425
-14,79,Turkey,5.372999999999999
-15,80,Malaysia,5.3389999999999995
-16,82,Greece,5.287000000000001
-17,92,Indonesia,5.192
-18,94,Vietnam,5.175
-19,106,South Africa,4.7219999999999995
+,rank,happiness_score,country
+0,1,7.769,Finland
+1,2,7.6,Denmark
+2,3,7.553999999999999,Norway
+3,4,7.494,Iceland
+4,5,7.4879999999999995,Netherlands
+5,6,7.48,Switzerland
+6,7,7.343,Sweden
+7,8,7.307,New Zealand
+8,9,7.278,Canada
+9,10,7.246,Austria
+10,66,5.693,Portugal
+11,69,5.631,Philippines
+12,76,5.43,Hong Kong
+13,77,5.425,Dominican Republic
+14,79,5.372999999999999,Turkey
+15,80,5.3389999999999995,Malaysia
+16,82,5.287000000000001,Greece
+17,92,5.192,Indonesia
+18,94,5.175,Vietnam
+19,106,4.7219999999999995,South Africa
